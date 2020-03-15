@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   pageTitle: string = "Product List";
+  imageWidth: number = 50;
+  imageMargin: number = 2;
+  showImage: boolean = true;
+  imageButtonText: string = "Hide";
+  listFilter: string = "cart";
   products: any[] = [
     {
       "productId": 2,
@@ -26,13 +31,24 @@ export class ProductListComponent implements OnInit {
       "description": "descasffffdcasdc",
       "price": 34.99,
       "starRating": 1.2,
-      "imageUrl": "assets/images/garden_cart.png"
+      "imageUrl": "assets/images/hammer.png"
     }
   ];
+
+  productsFiltered = this.products;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleImage(): void{
+    this.showImage = !this.showImage;
+    if(this.showImage){
+      this.imageButtonText = "Hide";
+    }else{
+      this.imageButtonText = "Show";
+    }
   }
 
 }
